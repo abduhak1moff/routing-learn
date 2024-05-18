@@ -5,7 +5,7 @@ export class CodeSplit extends Component {
   render() {
     return (
       <div>
-        <Card className="w-75 mx-auto my-3 px-5">
+        <Card className="w-75 mx-auto my-3 ">
           <Card.Img variant="top" src="" />
           <Card.Body>
             <Card.Title>Code Spliting</Card.Title>

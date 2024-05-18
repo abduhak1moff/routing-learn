@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Layout from "./components/layout";
 import Loading from "./components/shares/Loading";
+import ProductPage from "./pages/ProductPage";
 
 const PostsPage = lazy(() => import("./pages/PostsPage"));
 const PostPage = lazy(() => import("./pages/PostPage"));
@@ -23,6 +24,7 @@ function App() {
         <Routes>
           <Route element={<Layout />}>
             <Route index element={<HomePage />} />
+            <Route path="products" element={<ProductPage />} />
             <Route path="about">
               <Route index element={<AboutPage />} />
               <Route path="team" element={<TeamPage />} />

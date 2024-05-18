@@ -3,6 +3,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 import Loading from "../components/shares/Loading";
+import { Card } from "react-bootstrap";
 
 export class PostPage extends Component {
   state = {
@@ -36,8 +37,19 @@ export class PostPage extends Component {
               <Loading />
             ) : (
               <Fragment>
-                <h1>{post?.title}</h1>
-                <p>{post?.body}</p>
+                <Card className="p-3 w-75 mx-auto">
+                  <Card.Img
+                    className="w-50 mx-auto"
+                    variant="top"
+                    src="https://shethink.in/wp-content/uploads/2021/07/react.js-img.png"
+                  />
+                  <Card.Body>
+                    <Card.Title>
+                      {post?.id}.{post?.title}
+                    </Card.Title>
+                    <Card.Text>{post?.body}</Card.Text>
+                  </Card.Body>
+                </Card>
               </Fragment>
             )}
           </div>

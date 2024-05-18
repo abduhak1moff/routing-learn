@@ -50,29 +50,40 @@ export class PostsPage extends Component {
       <Fragment>
         <section>
           <div className="container">
-            <h1>PostsPage ({total})</h1>
-            <input
-              value={search}
-              onChange={handleSearch}
-              type="text"
-              className="form-control"
-              placeholder="Searching..."
-            />
-            {loading ? (
-              <Loading />
-            ) : (
-              posts.map((post) => <PostCard key={post.id} {...post} />)
-            )}
-            {Array(pages)
-              .fill(1)
-              .map((_, i) => (
-                <button
-                  className={i + 1 === activePage ? "bg-danger" : ""}
-                  onClick={() => getPage(i + 1)}
-                >
-                  {i + 1}
-                </button>
-              ))}
+            <div className="d-flex align-items-center justify-content-between">
+              <h1>PostsPage ({total})</h1>
+              <input
+                value={search}
+                onChange={handleSearch}
+                type="text"
+                className="form-control w-50"
+                placeholder="Searching..."
+              />
+            </div>
+            <div className="d-flex flex-wrap justify-content-center gap-5 mt-5">
+              {loading ? (
+                <Loading />
+              ) : (
+                posts.map((post) => <PostCard key={post.id} {...post} />)
+              )}
+            </div>
+
+            <div className="d-flex  justify-content-center flex-wrap gap-2 mx-auto my-3">
+              {Array(pages)
+                .fill(1)
+                .map((_, i) => (
+                  <button
+                    className={
+                      i + 1 === activePage
+                        ? "bg-danger btn btn-danger"
+                        : "btn btn-primary"
+                    }
+                    onClick={() => getPage(i + 1)}
+                  >
+                    {i + 1}
+                  </button>
+                ))}
+            </div>
           </div>
         </section>
       </Fragment>
